@@ -309,7 +309,15 @@ def profile(request):
             flag_rspc = 1
     print(flag_rspc)
     # done edit
+
+    design = HoldsDesignation.objects.filter(working=request.user)
+    print(design)
+    desig=[]
+    for i in design:
+        desig.append(str(i.designation))
+
     context = {'user': user,
+               'desig':desig,
                'pf':pf,
                'flag_rspc':flag_rspc,
                'journal':journal,
@@ -614,8 +622,13 @@ def rspc_profile(request):
         y.append(r)
 
     pers = get_object_or_404(faculty_about, user = request.user)
-
+    design = HoldsDesignation.objects.filter(working=request.user)
+    print(design)
+    desig=[]
+    for i in design:
+        desig.append(str(i.designation))
     context = {'user': user,
+               'desig':desig,
                'pf':pf,
                'journal':journal,
                'conference': conference,
@@ -2280,8 +2293,13 @@ def generate_report(request):
         events_req = "0"
 
     pers = get_object_or_404(faculty_about, user = request.user)
-
+    design = HoldsDesignation.objects.filter(working=request.user)
+    print(design)
+    desig=[]
+    for i in design:
+        desig.append(str(i.designation))
     context = {'user': user,
+               'desig':desig,
                'pf':pf,
                'journal':journal,
                'journal_req':journal_req,
@@ -2705,9 +2723,14 @@ def rspc_generate_report(request):
         events_req = "0"
 
     pers = get_object_or_404(faculty_about, user = request.user)
-
+    design = HoldsDesignation.objects.filter(working=request.user)
+    print(design)
+    desig=[]
+    for i in design:
+        desig.append(str(i.designation))
     context = {'user': user,
                'pf':pf,
+               'desig':desig,
                'journal':journal,
                'journal_req':journal_req,
                'conference': conference,

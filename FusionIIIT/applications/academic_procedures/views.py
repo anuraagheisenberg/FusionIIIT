@@ -46,7 +46,10 @@ def academic_procedures(request):
                 request - trivial.
 
         @variables:
+                current_user - details of the current user.
+                extraInfo_user - gets the user details from the extrainfo model.
                 desig_id - Finds the Acad admin whose designation is "Upper Division Clerk"
+                acadadmin - acad-admin's data required to process.
                 student - Details of the currently logged in user.
                 user_sem - Curent semester of the current user.
                 registered_or_not - Checks whether the logged in student has registered or not.
@@ -729,6 +732,7 @@ def approve_branch_change(request):
                 choices - list of students who applied for the branch change.
                 branches - selected brances by the student.
                 get_student - updating the student's branch after approval.
+                branch - branch of the current user.
     '''
     if request.method == 'POST':
         values_length = 0
@@ -773,6 +777,8 @@ def get_batch_query_detail(month, year):
                 year - current year.
 
         @variables:
+                stream1 - string BTech.
+                stream2 - string MTech.
                 query_option1 - year to be shown on students course sho page acad admin
     '''
     stream1 = "B.Tech "
@@ -810,7 +816,7 @@ def dropcourseadmin(request):
         @variables:
                 data - user's id.
                 rid - Registration ID of Registers table
-                response_data -
+                response_data - data to be responded.
     '''
     data = request.GET.get('id')
     data = data.split("+")
@@ -834,6 +840,7 @@ def verify_course(request):
                 desig_id - Finds the Acad admin whose designation is "Upper Division Clerk".
                 acadadmin - details of the acad person(logged in).
                 roll_no - roll number of all the students.
+                firstname - firstname of the students.
                 year - current year.
                 month - current month.
                 date - current date.
@@ -905,9 +912,9 @@ def student_list(request):
                 request - trivial
 
         @variables:
-                query_option1 -
-                query_option2 -
-                dep_id -
+                query_option1 - get queries of the students from extrainfo.
+                query_option2 - get quesries of the studens from student.
+                dep_id - get the department ID of the logged in student.
                 year - current year
                 month - current month
     '''
@@ -981,6 +988,15 @@ def acad_branch_change(request):
                 acadadmin - details of the logged in acad admin.
                 user_details - details of the logged in user.
                 change_queries - gets all the details of branch changes from the database.
+                year - current year.
+                month - current month
+                date - current date.
+                total_cse_seats - total availbale CSE seats.
+                total_ece_seats - total availbale ECE seats.
+                total_me_seats - total availbale ME seats.
+                available_cse_seats - availbale CSE seats.
+                available_ece_seats - available ECE seats.
+                available_me_seats - available ME seats.
     '''
     current_user = get_object_or_404(User, username=request.user.username)
     user_details = ExtraInfo.objects.all().filter(user=current_user).first()

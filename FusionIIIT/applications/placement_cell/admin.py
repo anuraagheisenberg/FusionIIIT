@@ -1,8 +1,8 @@
 from django.contrib import admin
 
 from .models import (Achievement, ChairmanVisit, Coauthor, Coinventor,
-                     ContactCompany, Course, Education, Experience, Has,
-                     Interest, Know, Language, MessageOfficer, NotifyStudent,
+                     Course, Education, Experience, Has,
+                     Interest, MessageOfficer, NotifyStudent,
                      Patent, PlacementRecord, PlacementSchedule,
                      PlacementStatus, Project, Publication, Skill,
                      StudentPlacement, StudentRecord)
@@ -11,14 +11,6 @@ from .models import (Achievement, ChairmanVisit, Coauthor, Coinventor,
 # Register your models here.
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('unique_id', 'project_name', 'project_status', 'sdate')
-
-
-class LanguageAdmin(admin.ModelAdmin):
-    fields = ['language']
-
-
-class KnowAdmin(admin.ModelAdmin):
-    list_display = ('language_id', 'unique_id')
 
 
 class SkillAdmin(admin.ModelAdmin):
@@ -94,17 +86,11 @@ class ChairmanVisitAdmin(admin.ModelAdmin):
     list_display = ('company_name', 'location', 'visiting_date', 'timestamp')
 
 
-class ContactCompanyAdmin(admin.ModelAdmin):
-    list_display = ('company_name', 'hr_mail', 'timestamp')
-
-
 class PlacementScheduleAdmin(admin.ModelAdmin):
     list_display = ('title', 'placement_date', 'location', 'time')
 
 
 admin.site.register(Project, ProjectAdmin)
-admin.site.register(Language, LanguageAdmin)
-admin.site.register(Know, KnowAdmin)
 admin.site.register(Skill, SkillAdmin)
 admin.site.register(Has, HasAdmin)
 admin.site.register(Education, EducationAdmin)
@@ -123,5 +109,4 @@ admin.site.register(PlacementStatus, PlacementStatusAdmin)
 admin.site.register(PlacementRecord, PlacementRecordAdmin)
 admin.site.register(StudentRecord, StudentRecordAdmin)
 admin.site.register(ChairmanVisit, ChairmanVisitAdmin)
-admin.site.register(ContactCompany, ContactCompanyAdmin)
 admin.site.register(PlacementSchedule, PlacementScheduleAdmin)

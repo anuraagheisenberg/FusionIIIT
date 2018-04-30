@@ -182,7 +182,7 @@ def about(request):
                             'devImage': 'zlatan.jpg',
                             'devTitle': 'Rollnum'
                             },
-                },
+               },
 
                'academics_b_Team': {
                    'dev1': {'devName': 'Mayank Saurabh',
@@ -871,6 +871,7 @@ def dashboard(request):
     else:
         context = {}
         return render(request, "dashboard/dashboard.html", context)
+
 
 
 
