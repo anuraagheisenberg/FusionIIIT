@@ -34,7 +34,7 @@
                 </thead>
 
                 <tbody>
-                {% for doc in doctors_active %}
+                {% for doc in doctors %}
                 <tr>
 
                     <td>
@@ -141,7 +141,7 @@
                 <label>Doctor</label>
                 <select id="doc_active" class="ui search fluid dropdown" name="doctor_id" required="true">
                   <option selected hidden>--SELECT--</option>
-                  {% for doctor in doctors_active %}
+                  {% for doctor in doctors %}
                   <option value="{{doctor.id}}">{{doctor.doctor_name}}</option>
                   {% endfor %}
                 </select>

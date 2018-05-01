@@ -140,8 +140,7 @@
                                                           times:$("#times").val()
                                                         },
                                                           success: function(data){
-                                                            if(data.status==1)
-                                                            {
+
                                                               alert("added medicine");
                                                               document.getElementById("quantity").value="";
                                                               document.getElementById("medicine_id").value="";
@@ -153,10 +152,6 @@
                                                                $('#sched').append("<tr><td>" + value.medicine + "</td><td>" +
                                                                value.quantity + "</td><td>" + value.days + "</td><td>" + value.times + "</td></tr>");
                                                              });
-                                                           }
-                                                           else{
-                                                             alert("quantity not available only"+data.stock);
-                                                           }
                                                         }
                                                       });
                                                     });
