@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # FusionIIIT
 
 **FusionIIIT** is the automation of various functionalities, modules and tasks of/for PDPM Indian Institute of Information Technology, Design and Manufacturing, Jabalpur being developed in python3.6 and using django webframework version 1.11.4  
@@ -135,5 +134,4 @@ And additional requirements are in **requirements.txt**
   $ flake8 . --exclude manage.py,__pycache__,migrations --max-line-length=100
   $ isort
   ```
-  * If there are errors resolve them, and then send a pull request.
->>>>>>> 8840ea3da5f4a670a7683a29f89c0509c75da90e
+
